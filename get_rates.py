@@ -1,8 +1,13 @@
 import requests
 import pandas as pd
+from dotenv import load_dotenv
+import os 
 
-# Generate APP id from https://openexchangerates.org/account/app-ids and replace below
-API_KEY = '583fa587182341dca7468e4414686316'
+load_dotenv()
+CURRENCY_CONVERSION_API_KEY = os.getenv('CURRENCY_CONVERSION_API_KEY')
+
+# Generate APP id from https://openexchangerates.org/account/app-ids and replace below ( its free)
+API_KEY =  CURRENCY_CONVERSION_API_KEY
 URL = f"https://openexchangerates.org/api/latest.json?app_id={API_KEY}"
 
 def fetch_conversion_rates():
